@@ -5,8 +5,9 @@ const getters = {
     userno: (state) => state.user.userInfo.userNo,
     clientid: (state) => state.user.userInfo.clientId,
     loginAccount: (state) => state.user.userInfo.loginAccount,
-    userType: (state) => state.user.userInfo.userType
-    // sidebar: state => state.app.sidebar,
+    userType: (state) => state.user.userInfo.userType,
+
+    sidebar: state => state.app.sidebar
     // language: state => state.app.language,
     // device: state => state.app.device,
     // visitedViews: state => state.tagsView.visitedViews,

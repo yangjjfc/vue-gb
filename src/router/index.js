@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-Vue.use(Router);
-
 /* Layout */
-// import Layout from '@/views/layout/Layout'
+import Layout from '@/pages/layout/Layout';
+
+Vue.use(Router);
 
 /** note: submenu only apppear when children.length>=1
 *   detail see  https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -25,21 +25,21 @@ Vue.use(Router);
   }
 **/
 export const constantRouterMap = [
-    { path: '/login', component: () => import('@/pages/login/index'), hidden: true }
-//   { path: '/authredirect', component: () => import('@/views/login/authredirect'), hidden: true },
-//   { path: '/404', component: () => import('@/views/errorPage/404'), hidden: true },
-//   { path: '/401', component: () => import('@/views/errorPage/401'), hidden: true },
-//   {
-//     path: '',
-//     component: Layout,
-//     redirect: 'dashboard',
-//     children: [{
-//       path: 'dashboard',
-//       component: () => import('@/views/dashboard/index'),
-//       name: 'dashboard',
-//       meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
-//     }]
-//   },
+    { path: '/login', component: () => import('@/pages/login/index'), hidden: true },
+    //   { path: '/authredirect', component: () => import('@/views/login/authredirect'), hidden: true },
+    //   { path: '/404', component: () => import('@/views/errorPage/404'), hidden: true },
+    //   { path: '/401', component: () => import('@/views/errorPage/401'), hidden: true },
+    {
+        path: '',
+        component: Layout
+        // redirect: 'dashboard',
+        // children: [{
+        // path: 'dashboard',
+        // component: () => import('@/views/dashboard/index'),
+        // name: 'dashboard',
+        // meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
+        // }]
+    }
 //   {
 //     path: '/documentation',
 //     component: Layout,
