@@ -5,8 +5,7 @@ let URL = {
 const user = {
     state: {
         userInfo: {}, // 用户信息
-        menuList: [], // 用户权限菜单
-        routers: [], // 路由
+        roles: ['admin'], // 用户权限菜单
         buttons: [] // 按钮权限
     },
     mutations: {
@@ -19,15 +18,14 @@ const user = {
         CLEARSTATE (state, data) {
             state = {
                 userInfo: {}, 
-                menuList: [], 
-                routers: [], 
+                roles: [], 
                 buttons: []
             };
             sessionStorage.clear();
         },  
         // 获取权限
         GETROLES (state, data) {
-            state.menuList = data;
+            state.roles = data;
         },
         // 按钮权限
         SETBUTTONS (state, data) {
@@ -91,14 +89,13 @@ const user = {
             });
         },
         // 获取用户菜单
-        getUserMenus ({ commit, state }) {
+        getUserRoles ({ commit, state }) {
             return new Promise((resolve, reject) => {
-                state.menuList ? resolve(state.menuList) : Http(URL.MENULIST).then(res => {
+                state.roles.length ? resolve(state.roles) : Http(URL.MENULIST).then(res => {
                     if (res.data) {
-                        let munuList = res.data.menuTree;
-                        commit('GETROLES', munuList);
-                        commit('SETBUTTONS', res.data.permissionList);
-                        resolve(state.menuList);
+                        let roles = res.data.menuTree;
+                        commit('GETROLES', roles);
+                        resolve(state.roles);
                     } else {
                         reject('获取用户菜单失败');
                     }

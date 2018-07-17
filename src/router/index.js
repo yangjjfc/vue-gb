@@ -31,16 +31,151 @@ export const constantRouterMap = [
     //   { path: '/401', component: () => import('@/views/errorPage/401'), hidden: true },
     {
         path: '',
-        component: Layout
-        // redirect: 'dashboard',
-        // children: [{
-        // path: 'dashboard',
-        // component: () => import('@/views/dashboard/index'),
-        // name: 'dashboard',
-        // meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
-        // }]
+        component: Layout,
+        name: 'user-permission',
+        redirect: '/user-permission/user',
+        meta: { title: '用户权限', icon: 'dashboard', noCache: true },
+        children: [{
+            path: 'user-permission/user',
+            component: () => import('@/pages/user-permission/user/index'),
+            name: 'user-permission-user',
+            meta: { title: '用户管理', noCache: true }
+        }, {
+            path: 'user-permission/role',
+            component: () => import('@/pages/user-permission/role/index'),
+            name: 'user-permission-role',
+            meta: { title: '角色管理', noCache: true }
+        }, {
+            path: 'user-permission/menu',
+            component: () => import('@/pages/user-permission/menu/index'),
+            name: 'user-permission-menu',
+            meta: { title: '菜单管理', noCache: true }
+        }]
+    }, {
+        path: '/system',
+        component: Layout,
+        name: 'system',
+        redirect: '/system/platform',
+        meta: { title: '系统管理', icon: 'dashboard', noCache: true },
+        children: [{
+            path: 'platform',
+            component: () => import('@/pages/system/platform/index'),
+            name: 'system-platform',
+            meta: { title: '存储系统管理', noCache: true }
+        }, {
+            path: 'storage',
+            component: () => import('@/pages/system/storage/index'),
+            name: 'system-storage',
+            meta: { title: '媒体工具', noCache: true }
+        }, {
+            path: 'administrative',
+            component: () => import('@/pages/system/administrative/index'),
+            name: 'system-administrative',
+            meta: { title: '行政区域管理', noCache: true }
+        }, {
+            path: 'emergency',
+            component: () => import('@/pages/system/emergency/index'),
+            name: 'system-emergency',
+            meta: { title: '系统告警管理', noCache: true }
+        }, {
+            path: 'report',
+            component: () => import('@/pages/system/report/index'),
+            name: 'system-report',
+            meta: { title: '用户操作日志', noCache: true }
+        }]
+    }, {
+        path: '/resource',
+        component: Layout,
+        name: 'resource',
+        redirect: '/resource/manage',
+        meta: { title: '资源管理', icon: 'dashboard', noCache: true },
+        children: [{
+            path: 'manage',
+            component: () => import('@/pages/resource/manage/index'),
+            name: 'resource-manage',
+            meta: { title: '终端管理', noCache: true }
+        }, {
+            path: 'account',
+            component: () => import('@/pages/resource/account/index'),
+            name: 'resource-account',
+            meta: { title: '终端开户', noCache: true }
+        }, {
+            path: 'equipment',
+            component: () => import('@/pages/resource/equipment/index'),
+            name: 'resource-equipment',
+            meta: { title: '设备管理', noCache: true }
+        }]
+    }, {
+        path: '/supervise',
+        component: Layout,
+        name: 'supervise',
+        redirect: '/supervise/recall',
+        meta: { title: '监管检测', icon: 'dashboard', noCache: true },
+        children: [{
+            path: 'recall',
+            component: () => import('@/pages/supervise/recall/index'),
+            name: 'supervise-recall',
+            meta: { title: '回溯与监听', noCache: true }
+        }, {
+            path: 'broadcast',
+            component: () => import('@/pages/supervise/broadcast/index'),
+            name: 'supervise-broadcast',
+            meta: { title: '广播统计报表', noCache: true }
+        }, {
+            path: 'gis',
+            component: () => import('@/pages/supervise/gis/index'),
+            name: 'supervise-gis',
+            meta: { title: 'GIS展示', noCache: true }
+        }, {
+            path: 'terminal',
+            component: () => import('@/pages/supervise/terminal/index'),
+            name: 'supervise-terminal',
+            meta: { title: '终端统计报表', noCache: true }
+        }, {
+            path: 'resurssiluettelo',
+            component: () => import('@/pages/supervise/resurssiluettelo/index'),
+            name: 'supervise-resurssiluettelo',
+            meta: { title: '资源状态列表', noCache: true }
+        }]
+    }, {
+        path: '/broadcast',
+        component: Layout,
+        name: 'broadcast',
+        redirect: '/broadcast/recall',
+        meta: { title: '广播控制', icon: 'dashboard', noCache: true },
+        children: [{
+            path: 'content',
+            component: () => import('@/pages/broadcast/content/index'),
+            name: 'broadcast-content',
+            meta: { title: '广播内容采集', noCache: true }
+        }, {
+            path: 'diffuse',
+            component: () => import('@/pages/broadcast/diffuse/index'),
+            name: 'broadcast-diffuse',
+            meta: { title: '广播下发', noCache: true }
+        }, {
+            path: 'gis',
+            component: () => import('@/pages/broadcast/gis/index'),
+            name: 'broadcast-gis',
+            meta: { title: 'GIS广播', noCache: true }
+        }, {
+            path: 'single',
+            component: () => import('@/pages/broadcast/single/index'),
+            name: 'broadcast-single',
+            meta: { title: '排期单广播', noCache: true }
+        }, {
+            path: 'greenb',
+            component: () => import('@/pages/broadcast/greenb/index'),
+            name: 'broadcast-greenb',
+            meta: { title: '绿色通道广播', noCache: true }
+        }, {
+            path: 'manoeuvre',
+            component: () => import('@/pages/broadcast/manoeuvre/index'),
+            name: 'broadcast-manoeuvre',
+            meta: { title: '演习演练', noCache: true }
+        }]
     }
-//   {
+//   { 
 //     path: '/documentation',
 //     component: Layout,
 //     redirect: '/documentation/index',

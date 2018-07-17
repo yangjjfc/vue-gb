@@ -12,22 +12,22 @@
 
 <script>
 export default {
-  computed: {
-    language() {
-      return this.$store.getters.language
+    computed: {
+        language () {
+            return this.$store.getters.language;
+        }
+    },
+    methods: {
+        handleSetLanguage (lang) {
+            this.$i18n.locale = lang;
+            this.$store.dispatch('setLanguage', lang);
+            this.$message({
+                message: 'switch language success',
+                type: 'success'
+            });
+        }
     }
-  },
-  methods: {
-    handleSetLanguage(lang) {
-      this.$i18n.locale = lang
-      this.$store.dispatch('setLanguage', lang)
-      this.$message({
-        message: 'switch language success',
-        type: 'success'
-      })
-    }
-  }
-}
+};
 </script>
 
 <style scoped>

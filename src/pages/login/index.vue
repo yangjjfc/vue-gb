@@ -119,7 +119,7 @@
                         }
                         this.$router.push(defaultPath);
                     }, err => {
-                        this.$router.push({ path: '/' })
+                        this.$router.push({ path: '/' });
                         // 记录错误信息
                         this.errorMsg = err.msg;
                         this.refreshCode();

@@ -37,24 +37,23 @@
         </el-table-column>
       </el-table>
     </el-dialog>
-
   </div>
 </template>
 
 <script>
 export default {
-  name: 'errorLog',
-  data() {
-    return {
-      dialogTableVisible: false
+    name: 'errorLog',
+    data () {
+        return {
+            dialogTableVisible: false
+        };
+    },
+    computed: {
+        errorLogs () {
+            return this.$store.getters.errorLogs;
+        }
     }
-  },
-  computed: {
-    errorLogs() {
-      return this.$store.getters.errorLogs
-    }
-  }
-}
+};
 </script>
 
 <style scoped>
