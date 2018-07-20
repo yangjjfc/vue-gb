@@ -5,7 +5,7 @@ let URL = {
 const user = {
     state: {
         userInfo: {}, // 用户信息
-        roles: ['admin'], // 用户权限菜单
+        roles: [], // 用户权限菜单
         buttons: [] // 按钮权限
     },
     mutations: {

@@ -274,6 +274,7 @@ export const scrollEnd = (domArr) => {
             break;
         case 'name':
             $dom = document.getElementsByTagName(elem.name);
+            // document.querySelector    
             break;
         default:
             break;

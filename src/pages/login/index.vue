@@ -12,12 +12,12 @@
                 <el-form ref="form" :model="form">
                     <el-form-item>
                         <el-input placeholder="请输入用户名" v-model.trim="form.account" @keyup.enter.native="login">
-                            <icon-svg icon-class="icon-denglu-1" slot="prefix" class="icons"></icon-svg>
+                            <svg-icon icon-class="icon-denglu-1" slot="prefix" class="icons"></svg-icon>
                         </el-input>
                     </el-form-item>
                     <el-form-item>
                         <el-input placeholder="请输入密码" v-model.trim="form.password" type="password" @keyup.enter.native="login">
-                            <icon-svg icon-class="icon-denglu-" slot="prefix" class="icons"></icon-svg>
+                            <svg-icon icon-class="icon-denglu-" slot="prefix" class="icons"></svg-icon>
                         </el-input>
                     </el-form-item>
                     <el-form-item class="mgb10">
@@ -48,8 +48,8 @@
                 showForget: false,
                 errorMsg: '',
                 form: {
-                    account: '',
-                    password: ''
+                    account: 'admin2',
+                    password: '123456'
                 }
             };
         },

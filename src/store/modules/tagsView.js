@@ -1,3 +1,20 @@
+const setSession = (val1, val2) => {
+    sessionStorage.setItem('visitedViews', JSON.stringify(val1));
+    sessionStorage.setItem('cachedViews', JSON.stringify(val2));
+};
+const getSession = (key) => {
+    console.log(23);
+    let res = sessionStorage.getItem(key);
+    if (res) {
+        return JSON.parse(res);
+    } else {
+        return [];
+    }
+};
+const delSession = (key) => {
+    sessionStorage.removeItem('visitedViews');
+    sessionStorage.removeItem('cachedViews');
+};
 const tagsView = {
     state: {
         visitedViews: [],
@@ -9,6 +26,7 @@ const tagsView = {
             state.visitedViews.push(Object.assign({}, view, {
                 title: view.meta.title || 'no-name'
             }));
+           
             if (!view.meta.noCache) {
                 state.cachedViews.push(view.name);
             }
